@@ -5,7 +5,14 @@ def mask_account_card(info: str) -> str:
     """Принимает тип и номер карты или счета, возвращает замаскированный номер"""
     if info.strip() == "":
         return "Вы ничего не ввели"
-    if len(info.split()) >= 3:
+    has_digit = False
+
+    for symbol in info:
+        if symbol.isdigit():
+            has_digit = True
+            break
+
+    if not has_digit:
         return "Некорректный ввод информации"
     account_number = ""
     card_number = ""
