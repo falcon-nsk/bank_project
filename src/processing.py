@@ -8,10 +8,8 @@
 у которых ключ state соответствует указанному значению.
 """
 
-def filter_by_state(
-        list_of_dicts: list[dict],
-        state="EXECUTED"
-) -> list[dict]:
+
+def filter_by_state(list_of_dicts: list[dict], state: str = "EXECUTED") -> list[dict]:
     """Фильтрует список словарей по значению ключа `state`.
     Args:
         list_of_dicts: Список словарей.
@@ -26,10 +24,7 @@ def filter_by_state(
     return new_list_of_dicts
 
 
-def sort_by_date(
-        list_of_dicts: list[dict],
-        reverse: bool = True
-) -> list[dict]:
+def sort_by_date(list_of_dicts: list[dict], reverse: bool = True) -> list[dict]:
     """
     Сортирует список словарей по дате.
     Args:
@@ -38,9 +33,5 @@ def sort_by_date(
     Returns:
         Новый отсортированный список словарей
     """
-    new_list_sorted_by_date = sorted(
-        list_of_dicts,
-        key=lambda item: item["date"],
-    reverse=reverse
-    )
+    new_list_sorted_by_date = sorted(list_of_dicts, key=lambda item: item["date"], reverse=reverse)
     return new_list_sorted_by_date
