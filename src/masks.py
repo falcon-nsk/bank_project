@@ -46,7 +46,10 @@ def get_mask_account(account_number: str) -> str:
     """Принимает номер счета и возвращает его маску"""
     account_number = account_number.replace(" ", "")
 
-    if len(account_number) < 4:
-        return "Ошибка: номер слишком короткий"
+    if len(account_number) != 20:
+        raise ValueError("Неверная длина номера аккаунта")
+
+    if not account_number.isdigit():
+        raise ValueError("Неверный номер счета")
 
     return f"**{account_number[-4:]}"
