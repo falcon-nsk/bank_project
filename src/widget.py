@@ -36,4 +36,8 @@ def get_date(info: str) -> str:
     separated_line = info.split("T")
     date = separated_line[0]
     parts_of_date = date.split("-")
+
+    if len(parts_of_date) != 3:
+        raise ValueError("Неверный формат даты")
+
     return f"{parts_of_date[2]}.{parts_of_date[1]}.{parts_of_date[0]}"
