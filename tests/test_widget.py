@@ -2,6 +2,8 @@ import pytest
 
 from src.widget import get_date, mask_account_card
 
+# mask_account_card
+
 
 @pytest.mark.parametrize(
     "info, expected",
@@ -37,6 +39,9 @@ def test_mask_account_card_with_wrong_number_type(card_number: str) -> None:
 )
 def test_mask_account_card_without_digits(card_number: str, expected: str) -> None:
     assert mask_account_card(card_number) == expected
+
+
+# get_date
 
 
 @pytest.mark.parametrize(

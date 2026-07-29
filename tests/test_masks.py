@@ -13,6 +13,8 @@ import pytest
 
 from src.masks import get_mask_account, get_mask_card_number
 
+# get_mask_card_number
+
 
 @pytest.mark.parametrize(
     "card_number, expected", [("7000792289606361", "7000 79** **** 6361"), ("1000792289606234", "1000 79** **** 6234")]
@@ -37,6 +39,9 @@ def test_get_mask_card_number_with_symbols(card_number: str) -> None:
 def test_get_zero_len_mask_card_number(card_number: str) -> None:
     with pytest.raises(ValueError):
         get_mask_card_number(card_number)
+
+
+# get_mask_account
 
 
 @pytest.mark.parametrize(
