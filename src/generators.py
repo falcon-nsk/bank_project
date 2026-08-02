@@ -2,6 +2,7 @@ from typing import Iterator
 
 # filter_by_currency
 
+
 def filter_by_currency(transactions: list[dict], currency: str) -> Iterator[dict]:
     """
     Принимает на вход список словарей, представляющих транзакции.
@@ -15,7 +16,9 @@ def filter_by_currency(transactions: list[dict], currency: str) -> Iterator[dict
         if transaction["operationAmount"]["currency"]["code"] == currency:
             yield transaction
 
+
 # transaction_descriptions
+
 
 def transaction_descriptions(transactions: list[dict]) -> Iterator[str]:
     """
@@ -28,7 +31,9 @@ def transaction_descriptions(transactions: list[dict]) -> Iterator[str]:
     for transaction in transactions:
         yield transaction["description"]
 
+
 # card_number_generator
+
 
 def card_number_generator(start: int, end: int) -> Iterator[str]:
     """
@@ -42,11 +47,6 @@ def card_number_generator(start: int, end: int) -> Iterator[str]:
     """
     for number in range(start, end + 1):
         card_number = str(number).zfill(16)
-        parts_card_number = [
-            card_number[0:4],
-            card_number[4:8],
-            card_number[-8:-4],
-            card_number[-4:]
-        ]
+        parts_card_number = [card_number[0:4], card_number[4:8], card_number[-8:-4], card_number[-4:]]
         card_number = " ".join(parts_card_number)
         yield card_number
