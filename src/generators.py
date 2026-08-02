@@ -49,4 +49,13 @@ for _ in range(5):
     Перевод организации
 """
 
-def transaction_descriptions(transactions: list[dict]) -> str:
+def transaction_descriptions(transactions: list[dict]) -> Iterator[str]:
+    """
+    Принимает список словарей с транзакциями.
+    Args:
+        transactions: Список словарей.
+    Returns:
+        Итератор описаний операций.
+    """
+    for transaction in transactions:
+        yield transaction["description"]
