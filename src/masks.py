@@ -16,6 +16,13 @@ XXXX XX** **** XXXX, где X — это цифра номера.
 def get_mask_card_number(card_number: str) -> str:
     """Принимает номер карты и возвращает ее маску"""
     card_number = card_number.replace(" ", "")
+
+    if len(card_number) != 16:
+        raise ValueError("Неверная длина номера карты")
+
+    if not card_number.isdigit():
+        raise ValueError("Неверный номер карты")
+
     first_part_of_number = card_number[:6]
     second_part_of_number = card_number[-4:]
     result = f"{first_part_of_number[:4]} {first_part_of_number[4:6]}** **** {second_part_of_number}"
@@ -39,7 +46,10 @@ def get_mask_account(account_number: str) -> str:
     """Принимает номер счета и возвращает его маску"""
     account_number = account_number.replace(" ", "")
 
-    if len(account_number) < 4:
-        return "Ошибка: номер слишком короткий"
+    if len(account_number) != 20:
+        raise ValueError("Неверная длина номера аккаунта")
+
+    if not account_number.isdigit():
+        raise ValueError("Неверный номер счета")
 
     return f"**{account_number[-4:]}"
