@@ -35,17 +35,17 @@ def transaction_descriptions(transactions: list[dict]) -> Iterator[str]:
 # card_number_generator
 
 
-def card_number_generator(start: int, end: int) -> Iterator[str]:
+def card_number_generator(start: int, stop: int) -> Iterator[str]:
     """
     Генерирует номера банковских карт в заданном диапазоне.
     Args:
         start: Начальное значение для генерации диапазона номеров.
-        end: Конечное значение для генерации диапазона номеров.
+        stop: Конечное значение для генерации диапазона номеров.
     Returns:
         Итератор номеров банковских карт в формате XXXX XXXX XXXX XXXX,
         где X — цифра номера карты.
     """
-    for number in range(start, end + 1):
+    for number in range(start, stop + 1):
         card_number = str(number).zfill(16)
         parts_card_number = [card_number[0:4], card_number[4:8], card_number[-8:-4], card_number[-4:]]
         card_number = " ".join(parts_card_number)
