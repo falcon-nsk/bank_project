@@ -2,10 +2,11 @@ from functools import wraps
 from typing import Any, Callable
 
 
-def log(filename:str | None = None) -> Callable[..., Any]:
+def log(filename: str | None = None) -> Callable[..., Any]:
     """
     Логирует выполнение функции и результат или ошибку.
     """
+
     def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
         @wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:

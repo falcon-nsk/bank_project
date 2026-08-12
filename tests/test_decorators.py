@@ -1,8 +1,9 @@
+from pathlib import Path
+
 import pytest
+from _pytest.capture import CaptureFixture
 
 from src.decorators import log
-from _pytest.capture import CaptureFixture
-from pathlib import Path
 
 
 def test_log_success(capsys: CaptureFixture[str]) -> None:
