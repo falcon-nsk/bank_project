@@ -1,6 +1,7 @@
 import json
 
 def load_transactions(file_path):
+    """ Загружает финансовые транзакции из JSON-файла """
     try:
 
         with open(file_path, "r", encoding="utf-8") as file:
