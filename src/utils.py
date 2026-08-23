@@ -1,7 +1,9 @@
 import json
+from pathlib import Path
 
-def load_transactions(file_path):
-    """ Загружает финансовые транзакции из JSON-файла """
+
+def load_transactions(file_path: Path) -> list[dict]:
+    """Загружает финансовые транзакции из JSON-файла"""
     try:
 
         with open(file_path, "r", encoding="utf-8") as file:
